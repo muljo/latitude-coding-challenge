@@ -1,6 +1,6 @@
 # latitude-coding-challenge
 
-#### The following text is a copy of an email I received regarding the coding test.
+### The following text is a copy of an email I received regarding the coding test.
 
 Thanks for the chat just now and agreeing to the next step in our recruitment process! We’re excited about building this new squad and would love you to be a part of it. 
 
