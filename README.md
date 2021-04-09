@@ -1,4 +1,6 @@
-# latitude-coding-challenge
+# Latitude coding challenge
+
+This is a solution to a coding challenge for a job at Latitude Financial Services.
 
 ### The following text is a copy of an email I received regarding the coding test.
 
