@@ -1,0 +1,1 @@
+# latitude-coding-challenge
