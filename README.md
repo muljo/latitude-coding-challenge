@@ -18,11 +18,9 @@ Write an efficient function that takes an array of stock prices and returns the 
 
 For example:
 
-int[] stockPrices = {10, 7, 5, 8, 11, 9};
+	int[] stockPrices = {10, 7, 5, 8, 11, 9};
 
-Assert.assertEquals (6, getMaxProfit(stockPrices)); // returns 6 (buy at $5 sell
-
-                                                                                                                                                  at $11)
+	Assert.assertEquals (6, getMaxProfit(stockPrices)); // returns 6 (buy at $5 sell
 
 You must buy before you sell. You may not buy and sell in the same time step (at least 1 minute must pass).
 
