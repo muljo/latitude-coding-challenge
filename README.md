@@ -1,6 +1,6 @@
 # Latitude coding challenge
 
-This is a solution to a coding challenge for a job at Latitude Financial Services.
+This is a solution to a coding challenge for a job at [Latitude Financial Services](https://www.latitudefinancial.com.au/).
 
 ### The following text is a copy of an email I received regarding the coding test.
 
