@@ -3,12 +3,15 @@
  */
 package latitude.coding.challenge;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
 
 public class AppTest {
-    @Test public void testAppHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull("app should have a greeting", classUnderTest.getGreeting());
+    @Test 
+	@DisplayName("Test that addition works")
+	public void testAddition() {
+		assertEquals(2 + 2, 4, "2 + 2 should equal 4");
     }
 }
