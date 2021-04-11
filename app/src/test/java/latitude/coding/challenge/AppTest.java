@@ -7,11 +7,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.BeforeEach;
 
 public class AppTest {
+	int[] stockPrices;
+	
+	@BeforeEach
+	public void setUp()
+	{
+		stockPrices = new int[]{10, 7, 5, 8, 11, 9};
+	}
     @Test 
-	@DisplayName("Test that addition works")
-	public void testAddition() {
-		assertEquals(2 + 2, 4, "2 + 2 should equal 4");
+	public void stockCalculator_returnsBestProfit() {
+		assertEquals (6, App.getMaxProfit(stockPrices)); // returns 6 (buy at $5 sell)
     }
 }
