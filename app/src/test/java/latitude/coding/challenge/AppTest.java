@@ -15,10 +15,17 @@ public class AppTest {
 	@BeforeEach
 	public void setUp()
 	{
-		stockPrices = new int[]{10, 7, 5, 8, 11, 9};
+		stockPrices = new int[]{0};
 	}
     @Test 
 	public void stockCalculator_returnsBestProfit() {
+		stockPrices = new int[]{10, 7, 5, 8, 11, 9};
 		assertEquals (6, App.getMaxProfit(stockPrices)); // returns 6 (buy at $5 sell)
     }
+	@Test
+	public void stockCalculator_shouldReturnZero_When_ArrayInputLength_IsLessThan_Two()
+	{
+		stockPrices = new int[]{0};
+		assertEquals(0, App.getMaxProfit(stockPrices));
+	}
 }
