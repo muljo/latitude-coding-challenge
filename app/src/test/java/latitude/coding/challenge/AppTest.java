@@ -9,13 +9,15 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.BeforeEach;
 
+import java.util.stream.IntStream;
+
 public class AppTest {
+	public static final int TRADING_TIME_IN_MINUTES = 360;
 	int[] stockPrices;
 	
 	@BeforeEach
 	public void setUp()
 	{
-		stockPrices = new int[]{0};
 	}
     @Test 
 	public void stockCalculator_returnsBestProfit() {
@@ -27,5 +29,12 @@ public class AppTest {
 	{
 		stockPrices = new int[]{0};
 		assertEquals(0, App.getMaxProfit(stockPrices));
+	}
+	@Test
+	public void stockCalculator_should_only_operate_within_trading_hours()
+	{
+		int minutesToAdd = 60;
+		stockPrices = IntStream.rangeClosed(0, App.TRADING_TIME_IN_MINUTES + minutesToAdd).toArray();
+		assertEquals(TRADING_TIME_IN_MINUTES, App.getMaxProfit(stockPrices));
 	}
 }
