@@ -4,11 +4,29 @@
 package latitude.coding.challenge;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+	// Assuming trading times is going off the ASX's trading times, which are 10am to 4pm.
+	public static final int TRADING_TIME_IN_MINUTES = 360;
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
-    }
+	public static int getMaxProfit(int[] stockPrices)
+	{
+		int maxProfit = 0;
+		int max = Integer.MIN_VALUE;
+
+		if (stockPrices.length < 2)
+		{
+			return 0;
+		}
+		int minute = Integer.min(stockPrices.length - 2, TRADING_TIME_IN_MINUTES);
+		while (minute >= 0)
+		{
+			if (stockPrices[minute] > max) {
+				max = stockPrices[minute];
+			} else {
+				maxProfit = Integer.max(maxProfit, max - stockPrices[minute]);
+			}
+			minute--;
+		}
+
+		return maxProfit;
+	}
 }
