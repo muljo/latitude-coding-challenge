@@ -4,6 +4,7 @@
 package latitude.coding.challenge;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
@@ -15,10 +16,6 @@ public class AppTest {
 	public static final int TRADING_TIME_IN_MINUTES = 360;
 	int[] stockPrices;
 	
-	@BeforeEach
-	public void setUp()
-	{
-	}
     @Test 
 	public void stockCalculator_returnsBestProfit() {
 		stockPrices = new int[]{10, 7, 5, 8, 11, 9};
@@ -31,10 +28,18 @@ public class AppTest {
 		assertEquals(0, App.getMaxProfit(stockPrices));
 	}
 	@Test
-	public void stockCalculator_should_only_operate_within_trading_hours()
+	public void stockCalculator_throwsException_whenGivenInputArray_thatIsTooLarge()
 	{
 		int minutesToAdd = 60;
 		stockPrices = IntStream.rangeClosed(0, App.TRADING_TIME_IN_MINUTES + minutesToAdd).toArray();
-		assertEquals(TRADING_TIME_IN_MINUTES, App.getMaxProfit(stockPrices));
+		
+
+		Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+				App.getMaxProfit(stockPrices);
+		});
+
+		String expectedExceptionMessage = "Stock Prices input length of " + stockPrices.length + " exceeded maximum length of " + TRADING_TIME_IN_MINUTES;
+		String actualExceptionMessage = exception.getMessage();
+		assertEquals(expectedExceptionMessage, actualExceptionMessage);
 	}
 }

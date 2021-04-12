@@ -7,18 +7,26 @@ public class App {
 	// Assuming trading times is going off the ASX's trading times, which are 10am to 4pm.
 	public static final int TRADING_TIME_IN_MINUTES = 360;
 
-	public static int getMaxProfit(int[] stockPrices)
-	{
-		int maxProfit = 0;
-		int max = Integer.MIN_VALUE;
+	/**
+	 * Returns the maximum profit that can be made from one trade on a given trading day.
+	 *@param stockPrices 	An array containing the stock prices for each minute 
+	 						of a given trading day
+	 * If the stock price array's length is greater than the number of minutes in a trading day, then the excess stock prices will be cut off and will not be considered.
+	 */
+	public static int getMaxProfit(int[] stockPrices) throws IllegalArgumentException {
+		int maxProfit;
+		int max;
 
-		if (stockPrices.length < 2)
-		{
+		if (stockPrices.length > TRADING_TIME_IN_MINUTES) {
+			throw new IllegalArgumentException("Stock Prices input length of " + stockPrices.length + " exceeded maximum length of " + TRADING_TIME_IN_MINUTES);
+		} else if (stockPrices.length < 2) {
 			return 0;
 		}
+
+		maxProfit = 0;
+		max = Integer.MIN_VALUE;
 		int minute = Integer.min(stockPrices.length - 2, TRADING_TIME_IN_MINUTES);
-		while (minute >= 0)
-		{
+		while (minute >= 0) {
 			if (stockPrices[minute] > max) {
 				max = stockPrices[minute];
 			} else {
