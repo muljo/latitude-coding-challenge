@@ -12,6 +12,8 @@ public class StockProfitCalculator {
 	 *@param stockPrices 	An array containing the stock prices for each minute 
 	 						of a given trading day
 	 * If the stock price array's length is greater than the number of minutes in a trading day, then the excess stock prices will be cut off and will not be considered.
+	 *@return The maximum profit that can be made from a single trade for the stock prices supplied as input.
+	 *@throws IllegalArgumentException if the length of stockPrices: i.e. stockPrices.length is greater than the trading time in minutes for a given trading day.
 	 */
 	public static int getMaxProfit(int[] stockPrices) throws IllegalArgumentException {
 		int maxProfit;
