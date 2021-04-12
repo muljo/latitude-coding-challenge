@@ -33,3 +33,32 @@ Expectations
 - Include any comments that you think will be relevant to provide any context around the approach taken / solution developed.
 - We prefer the response as a Git repo or ZIP File.
 - Once you have completed the challenge it will be reviewed and next steps discussed. If you are unsuccessful, you will receive feedback as to why
+
+
+### Building the application
+
+#### Dependencies
+
+The following dependencies are needed to build the application.
+
+- JDK 14
+- Gradle 7.0
+
+
+
+#### Building the project
+
+To build the project run
+```
+./gradlew build
+```
+in the project's root directory
+
+
+#### Running tests
+
+To run the unit tests in the application run
+```
+./gradlew test
+```
+in the project's root directory
