@@ -12,30 +12,30 @@ import org.junit.jupiter.api.BeforeEach;
 
 import java.util.stream.IntStream;
 
-public class AppTest {
+public class StockProfitCalculatorTest {
 	public static final int TRADING_TIME_IN_MINUTES = 360;
 	int[] stockPrices;
 	
     @Test 
 	public void stockCalculator_returnsBestProfit() {
 		stockPrices = new int[]{10, 7, 5, 8, 11, 9};
-		assertEquals (6, App.getMaxProfit(stockPrices)); // returns 6 (buy at $5 sell)
+		assertEquals (6, StockProfitCalculator.getMaxProfit(stockPrices)); // returns 6 (buy at $5 sell)
     }
 	@Test
 	public void stockCalculator_shouldReturnZero_When_ArrayInputLength_IsLessThan_Two()
 	{
 		stockPrices = new int[]{0};
-		assertEquals(0, App.getMaxProfit(stockPrices));
+		assertEquals(0, StockProfitCalculator.getMaxProfit(stockPrices));
 	}
 	@Test
 	public void stockCalculator_throwsException_whenGivenInputArray_thatIsTooLarge()
 	{
 		int minutesToAdd = 60;
-		stockPrices = IntStream.rangeClosed(0, App.TRADING_TIME_IN_MINUTES + minutesToAdd).toArray();
+		stockPrices = IntStream.rangeClosed(0, StockProfitCalculator.TRADING_TIME_IN_MINUTES + minutesToAdd).toArray();
 		
 
 		Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-				App.getMaxProfit(stockPrices);
+				StockProfitCalculator.getMaxProfit(stockPrices);
 		});
 
 		String expectedExceptionMessage = "Stock Prices input length of " + stockPrices.length + " exceeded maximum length of " + TRADING_TIME_IN_MINUTES;

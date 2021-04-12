@@ -3,7 +3,7 @@
  */
 package latitude.coding.challenge;
 
-public class App {
+public class StockProfitCalculator {
 	// Assuming trading times is going off the ASX's trading times, which are 10am to 4pm.
 	public static final int TRADING_TIME_IN_MINUTES = 360;
 
