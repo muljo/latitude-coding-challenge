@@ -23,9 +23,7 @@ jobs:
         distribution: 'adopt'
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Build with Gradle
+    - name: Build with Gradle and run unit tests
       run: ./gradlew build
-    - name: Run unit tests
-      run: ./gradlew test
 
 
