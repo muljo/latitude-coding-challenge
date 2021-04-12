@@ -4,7 +4,10 @@
 package latitude.coding.challenge;
 
 public class StockProfitCalculator {
-	// Assuming trading times is going off the ASX's trading times, which are 10am to 4pm.
+	/**
+	 * The length of the trading day in minutes
+	 * I am going off the ASX trading hours of 10am to 4pm for this coding challenge
+	 */
 	public static final int TRADING_TIME_IN_MINUTES = 360;
 
 	/**
